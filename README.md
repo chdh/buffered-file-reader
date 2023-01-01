@@ -27,7 +27,7 @@ classes, it's now possible to use this concept in a modern programming environme
 ### Reader.open()
 
 ```typescript
-static Reader.open (fileName: string, options?: OpenOptions) : Promise<Reader>
+static Reader.open(fileName: string, options?: OpenOptions) : Promise<Reader>
 ```
 
 Opens a file and returns a Reader object.
@@ -55,7 +55,7 @@ Closes the Reader object and the underlying file handle.
 ### reader.get()
 
 ```typescript
-reader.get (length: number) : Promise<Buffer|undefined>
+reader.get(length: number) : Promise<Buffer|undefined>
 ```
 
 Returns a view into the internal data buffer at the current file position.
@@ -78,7 +78,7 @@ The current file position is not advanced.
 ### reader.advance()
 
 ```typescript
-reader.advance (length: number)
+reader.advance(length: number)
 ```
 
 Advances the current file position.
@@ -87,7 +87,7 @@ Advances the current file position.
 ### reader.filePosition
 
 ```typescript
-reader.filePosition: number
+reader.filePosition : number
 
 ```
 
