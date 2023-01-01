@@ -1,0 +1,31 @@
+{
+   "name": "buffered-file-reader",
+   "version": "1.0.0",
+   "description": "A promise-based buffered file reader.",
+   "types": "dist/BufferedFileReader.d.ts",
+   "main": "dist/BufferedFileReader.js",
+   "type": "module",
+   "keywords": [
+      "buffered",
+      "file",
+      "reader"
+   ],
+   "license": "MIT",
+   "repository": "github:chdh/buffered-file-reader",
+   "contributors": [
+      {
+         "name": "Christian d'Heureuse",
+         "email": "chdh@inventec.ch",
+         "url": "http://www.source-code.biz"
+      }
+   ],
+   "scripts": {
+      "build": "tsc"
+   },
+   "files": [
+      "dist/*"
+   ],
+   "devDependencies": {
+      "@types/node": "^18.11.18"
+   }
+}

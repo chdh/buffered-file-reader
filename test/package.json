@@ -1,0 +1,9 @@
+{
+  "type": "module",
+  "dependencies": {
+    "buffered-file-reader": "file:.."
+  },
+  "devDependencies": {
+    "@types/node": "^18.11.18"
+  }
+}
