@@ -3,7 +3,7 @@
 A promise-based buffered reader for sequential byte-wise binary file input.
 
 **NPM package**: [buffered-file-reader](https://www.npmjs.com/package/buffered-file-reader)<br>
-**Example of how to use it**: [github.com/chdh/buffered-file-reader/tree/main/example](https://github.com/chdh/github.com/chdh/buffered-file-reader/tree/main/example)
+**Examples of how to use it**: [github.com/chdh/buffered-file-reader/tree/main/examples](https://github.com/chdh/buffered-file-reader/tree/main/examples)
 
 
 ## Concept
