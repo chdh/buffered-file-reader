@@ -23,20 +23,21 @@ export class Reader {
    private eof:              boolean;                      // true if no more data can be read from the underlying file handle
    private blockSize:        number;                       // block size for reading from the underlying file handle
 
+   private constructor (fileHandle: Fs.FileHandle, options?: OpenOptions) {
+      this.fileHandle = fileHandle;
+      this.isOpen = true;
+      const bufferSizeArg = options?.bufferSize || defaultBufferSize;
+      this.buffer = options?.preallocatedBuffer ?? Buffer.allocUnsafe(bufferSizeArg);
+      assert(this.buffer.length >= 2 * byteAlignment);
+      this.bufferEod = 0;
+      this.bufferFilePos = 0;
+      this.currentFilePos = 0;
+      this.eof = false;
+      this.blockSize = Math.min(maxBlockSize, roundDownToPowerOf2(Math.floor(this.buffer.length / 4))); }
+
    public static async open (fileName: string, options?: OpenOptions) : Promise<Reader> {
       const fileHandle = await Fs.open(fileName);
-      const reader = new Reader();
-      reader.fileHandle = fileHandle;
-      reader.isOpen = true;
-      const bufferSizeArg = options?.bufferSize || defaultBufferSize;
-      reader.buffer = options?.preallocatedBuffer ?? Buffer.allocUnsafe(bufferSizeArg);
-      assert(reader.buffer.length >= 2 * byteAlignment);
-      reader.bufferEod = 0;
-      reader.bufferFilePos = 0;
-      reader.currentFilePos = 0;
-      reader.eof = false;
-      reader.blockSize = Math.min(maxBlockSize, roundDownToPowerOf2(Math.floor(reader.buffer.length / 4)));
-      return reader; }
+      return new Reader(fileHandle, options); }
 
    public async close() : Promise<void> {
       if (!this.isOpen) {
